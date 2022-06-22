@@ -12,13 +12,13 @@ export default function (sel, data, c) {
         console.log('edtion 2');
         const children = []
         for (let i = 0; i < c.length; ++i) {
-            if (!(typeof c[i] == 'object' && c[i].hasOwnProperty('sel'))) {
+            if (!(typeof c[i] == 'object' && Object.prototype.hasOwnProperty.call(c[i], 'sel'))) {
                 throw new Error('the argument c is not a h function argument')
             }
             children.push(c[i])
         }
         return vnode(sel, data, children, undefined, undefined)
-    } else if (typeof c == 'object' && c.hasOwnProperty('sel')) {
+    } else if (typeof c == 'object' && Object.prototype.hasOwnProperty.call(c, 'sel')) {
         console.log('edtion 3');
         return vnode(sel, data, [c], undefined, undefined)
     } else {
