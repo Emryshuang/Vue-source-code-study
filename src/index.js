@@ -1,5 +1,5 @@
 import h from './mysnabbdom/h'
-
+import patch from './mysnabbdom/patch'
 
 const myVnode1 = h('a', {
     props: {
@@ -21,3 +21,6 @@ const myVnode2 = h('div', {}, [
     ),
 ])
 console.log(myVnode2)
+
+const container = document.getElementById('container')
+patch(container,myVnode1)
