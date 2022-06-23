@@ -1,12 +1,7 @@
 import h from './mysnabbdom/h'
 import patch from './mysnabbdom/patch'
 
-const myVnode1 = h('a', {
-    props: {
-        href: 'https://www.bilibili.com',
-        target: '_blank'
-    }
-}, '怪蜀黍的啊B!!!!')
+const myVnode1 = h('section', {}, '怪蜀黍的啊B!!!!')
 // console.log(myVnode1)
 const myVnode2 = h('section', {}, [
     h('p', {}, "文字1"),
@@ -31,8 +26,8 @@ const myVnode2 = h('section', {}, [
 // const myVnode4 = h('p', {}, 'Hi')
 const btn = document.querySelector('button')
 const container = document.getElementById('container')
-patch(container, myVnode1)
+patch(container, myVnode2)
 btn.onclick = function(){
-    patch(myVnode1, myVnode2)
+    patch(myVnode2, myVnode1)
 }
 
