@@ -5,7 +5,7 @@ import {
     styleModule,
     eventListenersModule,
     h,
-} from "snabbdom"
+} from 'snabbdom'
 const patch = init([classModule, propsModule, styleModule, eventListenersModule])
 
 const myVnode = h('a', {
