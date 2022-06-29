@@ -1,28 +1,31 @@
-import parseTemplate2Tokens from './mymustache/parseTemplate2Tokens'
+import rander from './mymustache/rander'
 
+const templateStr1 = `我买了{{phone.number}}件{{thing}}，我好{{mood}}啊`
 
-// const templateStr1 = `我买了一件{{thing}}，我好{{mood}}啊`
+const data1 = {
+  thing: '手机',
+  mood: '开心',
+  phone:{
+    number:2
+  }
+}
+
 const templateStr2 = `
 <div>
   <ol>
     {{#student}}
     <li>
-      学生{{item.name}}的爱好是
+      学生{{name}}的爱好是
       <ul>
-        {{#item.hobbies}}
+        {{#hobbies}}
         <li>{{.}}</li>
-        {{/item.hobbies}}
+        {{/hobbies}}
       </ul>
     </li>
     {{/student}}
   </ol>
 </div>
 `
-
-// const data1 = {
-//   thing: '手机',
-//   mood: 'mood'
-// }
 
 const data2 = {
   student:[
@@ -31,5 +34,10 @@ const data2 = {
     {name:'小强',hobbies:['足球','篮球','羽毛球']}
   ]
 }
-const tokens = parseTemplate2Tokens(templateStr2)
-console.log(tokens)
+console.log(data2)
+const result1 = rander(templateStr1, data1)
+const result2 =rander(templateStr2, data2)
+console.log(result1)
+console.log(result2)
+const container = document.getElementById('container')
+container.innerHTML = result2
