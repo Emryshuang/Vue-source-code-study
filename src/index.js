@@ -1,1 +1,3 @@
-import './index_mymustache'
+import './mymustache'
+import './mysnabbdom'
+import './myAST'

@@ -36,7 +36,7 @@ const myVnode5 = h('section', {}, [
 
 ])
 const btn = document.querySelector('button')
-const container = document.getElementById('container')
+const container = document.getElementById('box1')
 patch(container, myVnode3)
 btn.onclick = function () {
     patch(myVnode3, myVnode5)
