@@ -1,4 +1,4 @@
-import rander from './mymustache/rander'
+import rander from './rander'
 
 const templateStr1 = `我买了{{phone.number}}件{{thing}}，我好{{mood}}啊`
 

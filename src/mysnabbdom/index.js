@@ -1,5 +1,5 @@
-import h from './mysnabbdom/h'
-import patch from './mysnabbdom/patch'
+import h from './h'
+import patch from './patch'
 
 // const myVnode1 = h('section', {}, '怪蜀黍的啊B!!!!')
 // console.log(myVnode1)
