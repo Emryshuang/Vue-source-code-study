@@ -1,3 +1,5 @@
 import './mymustache'
 import './mysnabbdom'
 import './myAST'
+import './myreactive'
+import './mylifecycle'

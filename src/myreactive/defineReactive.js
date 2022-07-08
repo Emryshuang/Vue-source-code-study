@@ -13,7 +13,7 @@ export default function defineReactive(data, key, val = data[key]) {
 
 
     get() {
-      console.log(`the @${key} property of obj is accessed`)
+      console.log(`the @${key} property of obj is accessed, it is @${val}`)
       if (Dep.target) {
         dep.depend()
         if (childOb) {
@@ -25,7 +25,7 @@ export default function defineReactive(data, key, val = data[key]) {
     },
 
     set(newValue) {
-      console.log(`the @${key} property of obj is modified, new value is ${newValue}`)
+      console.log(`the @${key} property of obj is modified, new value is @${newValue}`)
       if (newValue == val) {
         return
       }

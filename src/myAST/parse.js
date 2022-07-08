@@ -18,13 +18,13 @@ export default function (templateString) {
     if (startRegExp.test(rest)) {
       let tag = rest.match(startRegExp)[1]
       let attrsString = rest.match(startRegExp)[2]
-      // console.log('检测到开始标记', tag, '@', attrsString)
+      // console.log('Detect the start mark', tag, '@', attrsString)
       tagStack.push(tag)
       innerStack.push({ 'tag': tag, 'children': [], attrs: parseAttrsString(attrsString) })
       index += attrsString ? tag.length + 2 + attrsString.length : tag.length + 2
       // index += tag.length + 2 + attrsString.length
     } else if (endRegExp.test(rest)) {
-      // console.log('检测到结束标记', tag) 
+      // console.log('Detect the end mark', tag) 
       let tag = rest.match(endRegExp)[1]
       if (tagStack.length > 0) {
         let pop_tag = tagStack.pop()
@@ -32,17 +32,17 @@ export default function (templateString) {
           let pop_inner = innerStack.pop()
           innerStack[innerStack.length - 1].children.push(pop_inner)
         } else {
-          throw new Error(`${tagStack[tagStack.length - 1]}标签没有封闭`)
+          throw new Error(`${tagStack[tagStack.length - 1]}The tag is not closed`)
         }
       } else {
-        throw new Error(`${tag}标签没有开始标签`)
+        throw new Error(`${tag}Tag has no start tag`)
       }
 
       index += tag.length + 3
     } else if (wordRegExp.test(rest)) {
       let word = rest.match(wordRegExp)[1]
       if (!/^\s+$/.test(word)) {
-        // console.log('检测到文字', word)
+        // console.log('Detect the text ', word)
         innerStack[innerStack.length - 1].children.push({ 'text': word, 'type': 3 })
       }
       index += word.length

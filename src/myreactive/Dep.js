@@ -6,11 +6,11 @@ export default class Dep {
 
     this.subs = []
   }
-  // 添加订阅
+  
   addSub(sub) {
     this.subs.push(sub)
   }
-  // 添加依赖
+
   depend() {
     if (Dep.target) {
       Dep.target.addDep(this)

@@ -32,7 +32,7 @@ const myVnode5 = h('section', {}, [
     h('p', { key: '2' }, '文字2'),
     h('p', { key: '5' }, '文字5'),
     h('p', { key: '8' }, '文字8'),
-   
+
 
 ])
 const btn = document.querySelector('button')
@@ -40,5 +40,6 @@ const container = document.getElementById('box1')
 patch(container, myVnode3)
 btn.onclick = function () {
     patch(myVnode3, myVnode5)
+    btn.disabled = true
 }
 
